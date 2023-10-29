@@ -1,0 +1,369 @@
+@charset "utf-8";
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+i {
+    font-style: normal;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+abbr,
+acronym {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+    font: 12px "微软雅黑", Arial;
+}
+
+
+/*浏览器滚动条*/
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px
+}
+
+::-webkit-scrollbar-button:vertical {
+    display: none;
+}
+
+::-webkit-scrollbar-track:vertical {
+    background-color: black;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #151515;
+}
+
+::-webkit-scrollbar-track-piece:hover {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background-color: #222;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #3B3B3B;
+}
+
+::-webkit-scrollbar-corner:vertical {
+    background-color: #535353;
+}
+
+::-webkit-scrollbar-resizer:vertical {
+    background-color: #FF6E00;
+}
+
+html,
+body {
+    font: 12px "微软雅黑", Arial;
+    color: #737373;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    background: #151515;
+}
+
+#wrap {
+    display: flex;
+    position: relative;
+    /*    width: calc(100% - 280px);*/
+    height: 100%;
+    overflow: hidden;
+}
+
+#Preview {
+    margin-right: 20px;
+    position: absolute;
+    /*    left：0；*/
+    width: 270px;
+    /*
+    height: 100%;
+    padding: 15px;
+    overflow: auto;
+    color: #fff;
+*/
+}
+
+#Preview img {
+    width: 100%;
+}
+
+
+/* wrapper */
+
+#wrapper {
+    flex: 1;
+    /*	position: absolute;*/
+    /*    width: calc(100% - 300px);*/
+    height: 100%;
+    /*    margin: ;*/
+    left: 270px;
+    overflow: auto;
+    transition: all 0.2s ease-in-out;
+    /*    background-color: #0F0;*/
+}
+
+#middle {
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    border-left: 1px solid #333;
+    left: 300px;
+    overflow-y: hidden;
+    /*    background: #333;*/
+    z-index: 9999;
+}
+
+#middle img {
+    overflow-y: auto;
+    width: 100%;
+}
+
+#middle:hover {
+    cursor: w-resize;
+}
+
+aside {
+    position: absolute;
+    width: 240px;
+    height: 100%;
+    right: 0;
+    padding: 0 20px 0 20px;
+    z-index: 99;
+    transition: all 0.2s ease-in-out;
+}
+
+aside:hover {
+    background-color: #111;
+}
+
+aside>nav {
+    position: relative;
+    padding-top: 70px;
+    height: 100%;
+}
+
+aside>nav>div {
+    width: 100%;
+    float: left;
+}
+
+aside>div {
+    position: absolute;
+    width: 100%;
+    height: 140px;
+    left: 0;
+    bottom: 0;
+}
+
+aside .prex,
+aside .next {
+    display: block;
+    width: 100%;
+    height: 70px;
+    cursor: pointer;
+}
+
+aside .prex {
+    background: url(prex.png) no-repeat center;
+}
+
+aside .prex:hover,
+aside .next:hover {
+    background-color: #0a0a0a;
+}
+
+aside .next {
+    background: url(next.png) no-repeat center;
+}
+
+nav>div>h2 {
+    display: block;
+    padding-left: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: url(right.png) no-repeat;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #666;
+    transition: all 0.3s ease-in-out;
+}
+
+nav>div>h2:hover {
+    /*	background: url(down.png) no-repeat;*/
+    color: #ccc;
+}
+
+nav>div>h2.on {
+    background: url(down.png) no-repeat;
+}
+
+nav ul {
+    position: relative;
+    padding-bottom: 10px;
+    display: none;
+}
+
+nav ul.on {
+    display: block;
+}
+
+nav ul>li {
+    position: relative;
+    cursor: pointer;
+}
+
+nav ul>li>a {
+    position: relative;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+    color: #555;
+    transition: all 0.2s ease-in-out;
+}
+
+nav ul>li.on>a {
+    color: #ccc;
+}
+
+nav ul>li:hover a {
+    /*	background: #191919;*/
+    color: #ccc;
+}
+
+nav ul>li>a img {
+    position: absolute;
+    opacity: 0.3;
+    width: 16px;
+    height: 16px;
+    left: 30px;
+    top: 7px;
+    /*	border-radius: 50%;*/
+    transition: all 0.2s ease-in-out;
+}
+
+nav ul>li:hover>a img,
+nav ul>li.on>a img {
+    opacity: 1;
+}
+
+nav ul>li>a h3 {
+    position: absolute;
+    left: 53px;
+    top: 0;
+}
+
+nav ul>li>a i {
+    position: absolute;
+    right: 20px;
+    opacity: 0;
+}
+
+#open {
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+    overflow-y: auto;
+    transition: all 0.2s ease-in-out;
+}
+
+#open.on {
+    top: 0;
+    opacity: 1;
+}
+
+#open div {
+    position: relative;
+    top: 0;
+    margin: 0 auto;
+    padding: 0 50px 0 50px;
+    width: 1000px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 99;
+}
+

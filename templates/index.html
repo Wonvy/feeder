@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Wonvy</title>
+	<meta name="referrer" content="never">
+	<!--    <meta name=“renderer” content=“webkit”>-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="。" />
+	<link rel="stylesheet" href="../static/css/styleflex3.css">
+	<!--    <link rel="stylesheet" href="css/other.css">-->
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="bookmark" href="/favicon.ico" />
+	<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+
+	<!-- 布局样式 layout -->
+	<link id="theme" rel="stylesheet" href="../static/css/view/view04.css">
+
+</head>
+
+{% load foobarfilename %}
+
+<body>
+
+	<!-- 弹出框 -->
+	<div id="setting">
+        <div class="areaclose"></div>
+        <div class="box">
+            <form action="/example/html5/demo_form.asp" method="get">
+                <input type="url" id="user_url" /><br /><br />
+                <select id="province">
+                    {% for h in categorylist %}
+                        <option>{{ h.name }}</option>
+                    {% endfor %}
+                </select>
+                <span id="submit" class="bottom">添加订阅</span> {# <input type="submit" />#}
+            </form>
+            <div id="bottom">
+                <p data-url="all" class="bottom">更新所有</p>
+                <p data-url="" class="bottom">缓存所有图片</p>
+                <p data-url="" class="bottom">导入OPML文件</p>
+                <p data-url="" class="bottom closeall">关闭</p>
+            </div>
+        </div>
+	</div>
+
+	<!-- 弹出框 -->
+	<div id="open">
+        <div class="areaclose"></div>
+        <div class="page-controls">
+            <i class="w1280" title="宽度1280px"> 1280 </i>
+            <i class="w800" title="宽度800px"> 800 </i>
+            <i class="zoomin" title="字号放大"> + </i>
+            <i class="zoomout" title="字号缩小"> - </i>
+            <i class="close" title="关闭"> x </i>
+            <!--			<i class="two"> =</i>-->
+        </div>
+        <div id="page" class="pagestyle">
+        </div>
+
+	</div>
+
+	<!-- 拖动条 -->
+	<div id="middle">
+	</div>
+
+	<!-- 框架 -->
+	<div id="flex-wrap">
+
+		<!-- 侧边栏 -->
+		<div id="flex-aside">
+			<nav>
+				<div>
+                    <p class="settingall">设置</p>
+					<h2>时间过滤</h2>
+					<ul>
+						<li>
+							<a data-href="today">
+								<h3>今天</h3>
+							</a>
+						</li>
+						<li>
+							<a data-href="threedays">
+								<h3>最近三天</h3>
+							</a>
+						</li>
+						<li>
+							<a data-href="week">
+								<h3>最近一周</h3>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div>
+					<h2>娱乐</h2>
+					<ul>
+						<li>
+							<a data-href="zongyi">
+                                <img src="http://www.iqiyi.com/favicon.ico" alt="综">
+								<h3>综艺节目</h3>
+							</a>
+						</li>
+					</ul>
+				</div>
+                
+				<div>
+					<h2>设计</h2>
+					<ul>
+						<li>
+							<a data-href="zcool">
+                                <img src="http://static.zcool.cn/git_z/z/site/favicon.ico?version=1506612911192" alt="站">
+								<h3>站酷</h3>
+							</a>
+						</li>
+						<li>
+							<a data-href="uicn">
+                                <img src="http://www.ui.cn/favicon.ico" alt="U">
+								<h3>ui中国</h3>
+							</a>
+						</li>
+						<li>
+							<a data-href="uehtml">
+                                <img src="http://www.uehtml.com/favicon.ico" alt="U">
+								<h3>uehtml</h3>
+							</a>
+						</li>
+						<li>
+							<a data-href="behance">
+                                <img src="https://www.behance.net/favicon.ico" alt="B">
+								<h3>behance</h3>
+							</a>
+						</li>
+						<li>
+							<a data-href="dribbble">
+                                <img src="https://cdn.dribbble.com/assets/favicon-63b2904a073c89b52b19aa08cebc16a154bcf83fee8ecc6439968b1e6db569c7.ico" alt="D">
+								<h3>dribbble</h3>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				{% for h in categorylist %}
+				<div>
+					<h2>{{ h.name }}</h2>
+					<ul>
+						{# {% for li in h.channel_set.all|slice:"2" %}#} {% for li in h.channel_set.all %}
+						<li>
+							<a data-href="{{ li.link }}">
+								<img src="{{ li.favicon }}" alt="{{ li.title|slice:':1'}}">
+								<h3>{{ li.title }}</h3>
+								<i>{{ li.id|item_count }}</i> {# <i>{{li.item_set.all.count}}</i>#} {# <i>{{li.item_set.filter(reed=1)|length}}</i>#}
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% endfor %}
+			</nav>
+
+			<div>
+				<i class="show_text">-</i>
+				<i class="prex"></i>
+				<i class="next"></i>
+			</div>
+		</div>
+
+		<!-- 列表栏 -->
+		<div id="flex-content">
+
+			<div class="page-controls">
+				<i class="view1" data-theme="/static/css/view/view01.css"> 1 </i>
+				<i class="view2" data-theme="/static/css/view/view02.css"> 2 </i>
+				<i class="view3" data-theme="/static/css/view/view03.css"> 3 </i>
+				<i class="view4" data-theme="/static/css/view/view04.css"> 4 </i>
+			</div>
+
+			<div id="wrapper" class="zcool">
+				<ul>
+					{% for i in itemlist %} {% if i.reed == 0 %}
+					<li>
+						{% else %}
+						<li class="reed">
+							{% endif %}
+							<a href="{{ i.link }}" target="_blank">
+								<div class="z-img"><img src="{{ i.pic }}" alt="{{ i.title }}"></div>
+								<div class="z-info">
+									<h4>{{ i.title }}</h4>
+									<img src="http://img.zcool.cn/community/04eeda589d6bd8a801219c777a7dea.jpg@80w_80h_1c_1e_1o_100sh.jpg">
+									<span>{{ i.title }}</span>
+								</div>
+							</a>
+						</li>
+						{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+		<!-- 预览栏 -->
+		<div id="flex-preview">
+
+
+                
+
+
+			{# <a href="http://images.ixiqi.com/wp-content/uploads/2017/09/20170909-tna-2.jpg">#}
+{# <img class="alignnone size-medium wp-image-106309" src="http://images.ixiqi.com/wp-content/uploads/2017/09/20170909-tna-2-490x367.jpg" alt="20170909-tna-2" width="490" height="367" /></a>#} {# <p class="packaging-competition"></p>#}
+		</div>
+
+	</div>
+
+
+</body>
+
+<script>
+	$(function() {
+		var minute = 1000 * 60;
+		var hour = minute * 60;
+		var day = hour * 24;
+		var week = day * 7;
+		var month = day * 30;
+
+		function getTimer(stringTime) {
+			var time1 = new Date().getTime(); //当前的时间戳
+			console.log(time1);
+			var time2 = Date.parse(new Date(stringTime)); //指定时间的时间戳
+			console.log(time2);
+			var time = time1 - time2;
+
+			var result = null;
+			result = "刚刚发布！";
+			if (time < 0) {
+				alert("设置的时间不能早于当前时间！");
+			} else if (time / month >= 1) {
+				result = "发布于" + parseInt(time / month) + "月前！";
+			} else if (time / week >= 1) {
+				result = "发布于" + parseInt(time / week) + "周前！";
+			} else if (time / day >= 1) {
+				result = "发布于" + parseInt(time / day) + "天前！";
+			} else if (time / hour >= 1) {
+				result = "发布于" + parseInt(time / hour) + "小时前！";
+			} else if (time / minute >= 1) {
+				result = "发布于" + parseInt(time / minute) + "分钟前！";
+			} else {
+				result = "刚刚发布！";
+			}
+			console.log(result);
+		}
+
+		//        alert(getTimer("2015-07-20 15:21:12"));
+
+
+
+		var clickX, leftWidth;
+		var dragging = false;
+		var doc = document;
+		var DrawBtn = $("#middle");
+		var leftBtn = $("#flex-preview");
+		//        var wrapWidth = $("#wrap").width();
+
+		// 给元素的鼠标按下事件绑定函数
+		DrawBtn.bind('mousedown', function() {
+			dragging = true;
+			leftWidth = leftBtn.width(); // 框架的位置距离左边
+		});
+		doc.onmousemove = function(e) {
+
+			// 鼠标按下参数
+			if (dragging) {
+				console.log(leftWidth);
+				clickX = e.pageX;
+
+				//第一个拖动按钮左边不出界
+				if (clickX > 0) {
+					DrawBtn.css('left', clickX - 7 + 'px'); //按钮移动
+					leftBtn.width(clickX + 'px');
+				} else {
+					DrawBtn.css('left', '0px');
+				}
+
+				//第一个按钮右边不出界
+				if (clickX > 1200) {
+					DrawBtn.css('left', 1200 + 'px');
+					leftBtn.width(1200 + 'px');
+				}
+			}
+		};
+		$(doc).mouseup(function(e) {
+			dragging = false;
+			e.cancelBubble = true;
+		})
+	})
+
+</script>
+<script type="text/javascript" src="../static/js/wonvy.js"></script>
+
+</html>

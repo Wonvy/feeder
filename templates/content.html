@@ -1,0 +1,16 @@
+<ul>
+    {% for i in itemlist %}
+        {% if i.reed == 1 %}
+            <li class="reed">
+        {% else %}
+            <li>
+        {% endif %}
+        <a href="{{ i.link }}" target="_blank">
+
+            <div class="z-img"><img src="{{ i.pic }}" alt="{{ i.title }}"></div>
+            <div class="z-info">
+                <h4>{{ i.title }}</h4><img src="http://img.zcool.cn/community/04eeda589d6bd8a801219c777a7dea.jpg@80w_80h_1c_1e_1o_100sh.jpg"><span>WMY北京</span></div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,214 @@
+@charset "utf-8";
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+i {
+    font-style: normal;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+abbr,
+acronym {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+    font: 12px "微软雅黑", Arial;
+}
+
+
+/*浏览器滚动条*/
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px
+}
+
+::-webkit-scrollbar-button:vertical {
+    display: none;
+}
+
+::-webkit-scrollbar-track:vertical {
+    background-color: black;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #151515;
+}
+
+::-webkit-scrollbar-track-piece:hover {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background-color: #222;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #3B3B3B;
+}
+
+::-webkit-scrollbar-corner:vertical {
+    background-color: #535353;
+}
+
+::-webkit-scrollbar-resizer:vertical {
+    background-color: #FF6E00;
+}
+
+html,
+body {
+    font: 12px "微软雅黑", Arial;
+    color: #737373;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    background: #151515;
+}
+
+#flex-wrap {
+    display: flex;
+    height: 100%;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    background-color: #90D9F7;
+}
+
+#flex-aside {
+    flex-grow: 0;
+    width: 300px;
+    background-color: #F0f0f0;
+}
+
+#flex-preview {
+    flex-grow: 0;
+    position: relative;
+    width: 300px;
+    background-color: #B1FF84;
+    overflow: auto;
+}
+
+#flex-preview>div {
+    overflow: auto;
+}
+
+#flex-preview>div img {
+    width: 100%;
+}
+
+#flex-content {
+    flex-grow: 1;
+    width: 0;
+    padding: 40px;
+    background-color: #F5DE25;
+    overflow: auto;
+    /*    z-index: 999;*/
+}
+
+#middle {
+    position: fixed;
+    left: 300px;
+    right: 0;
+    /*    margin-right: -0px;*/
+    height: 100%;
+    width: 10px;
+    background-color: blue;
+    z-index: 999;
+    cursor: e-resize;
+}
+
+
+/*站酷css*/
+
+.zcool {}
+
+.zcool ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: brown;
+}
+
+.zcool ul li {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    background-color: beige;
+}

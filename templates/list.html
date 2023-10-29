@@ -1,0 +1,17 @@
+<ul>
+    {% for i in itemlist %}
+        {% if i.reed == 1 %}
+            <li class="reed" title="{{ i.pubDate }}">
+        {% else %}
+            <li title="{{ i.pubDate }}">
+        {% endif %}
+        <a href="{{ i.link }}" target="_blank">
+
+            <div class="z-img"><img src="{{ i.pic }}" alt="{{ i.title }}"></div>
+            <div class="z-info">
+                <h4>{{ i.title }}</h4>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
